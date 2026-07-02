@@ -10,13 +10,26 @@
     main { text-align: center; }
     h1 { color: #F5A623; }
     .badge { color: #5DE0B0; font-size: 0.9rem; }
+    #visit-counter { margin-top: 1rem; font-weight: bold; }
   </style>
 </head>
 <body>
   <main>
     <h1>Jules Sandbox</h1>
     <p>An async coding agent works this repo. Merged PRs auto-deploy here via Render.</p>
-    <p class="badge">v1.0.0 — scaffold</p>
+    <div id="visit-counter">Visits: loading...</div>
+    <p class="badge">v1.1.0 — add visit counter</p>
   </main>
+  <script>
+    fetch('/api/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('visit-counter').textContent = `Visits: ${data.count}`;
+      })
+      .catch(err => {
+        console.error('Error fetching visit count:', err);
+        document.getElementById('visit-counter').textContent = 'Visits: unavailable';
+      });
+  </script>
 </body>
 </html>
