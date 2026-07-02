@@ -1,0 +1,16 @@
+{
+  "name": "jules-sandbox",
+  "version": "1.0.0",
+  "description": "Sandbox repo for the Jules async coding agent — deploys to Render on merge",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
